@@ -1,0 +1,19 @@
+extends base
+block content
+    div.container
+        div.row
+            div.col            
+            div.col
+                form(action="/users?_method=PATCH", method="POST")
+                    div.form-group
+                        label(for="userid") User Name
+                        input.form-control#username(type="text", name="userid" value=`${user.id}`)
+                    div.form-group
+                        label(for="username") User Name
+                        input.form-control#username(type="text", name="username" value=`${user.name}`)
+                    button.btn.btn-default(type="submit") Save
+            div.col
+
+block script
+    script(type="text/javascript").
+        document.getElementById('username').focus();

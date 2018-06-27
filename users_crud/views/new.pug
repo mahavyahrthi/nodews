@@ -1,0 +1,16 @@
+extends base
+block content
+    div.container
+        div.row
+            div.col            
+            div.col
+                form(action="/users", method="POST")
+                    div.form-group
+                        label(for="username") User Name
+                        input.form-control#username(type="text", name="username")
+                    button.btn.btn-default(type="submit") Add new user
+            div.col
+
+block script
+    script(type="text/javascript").
+        document.getElementById('username').focus();

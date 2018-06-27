@@ -1,0 +1,33 @@
+extends base
+block content
+    div.container
+        div.row
+            div.col
+                table(class="table table-hover")
+                    tr
+                        th ID
+                        th User Name
+                        th 
+                    each user in users
+                        tr
+                            td #{user.id}
+                            td #{user.name}
+                            td
+                                form(action=`/users/${user.id}`,method="GET", style="display:inline")
+                                    button.btn.btn-default(type="submit") Show
+                                span 
+                                form(action=`/users/${user.id}/edit`, method="GET", style="display:inline")
+                                    button.btn.btn-default(type="submit") Edit
+                                span 
+                                form(action=`/users/${user.id}?_method=DELETE`, method="POST", style="display:inline")
+                                    input(type="hidden", value=`${user.id}`, name="userid")
+                                    button.btn.btn-default(type="submit") Delete
+            div.col
+        div.row
+            div.col
+                a.btn.btn-outline-dark#adduser(href="/users/new", role="button") Add user
+            div.col
+
+block script
+    script(type="text/javascript").
+        document.getElementById('adduser').focus();

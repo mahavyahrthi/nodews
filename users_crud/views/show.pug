@@ -1,0 +1,25 @@
+extends base
+block content
+    div.container
+        div.row
+            div.col
+                div.jumbotron
+                    h2.display-4
+                        span.badge.badge-secondary #{user.id}
+                        span 
+                        span #{user.name}
+                    hr.my-4
+                    form(action=`/users/${user.id}/edit`, method="GET", style="display:inline")
+                        button.btn.btn-default(type="submit") Edit
+                    span 
+                    form(action=`/users/${user.id}?_method=DELETE`, method="POST", style="display:inline")
+                        input(type="hidden", value=`${user.id}`, name="userid")
+                        button.btn.btn-default(type="submit") Delete
+            div.col
+            div.col
+        div.row
+            div.col
+                a.btn.btn-outline-dark(href="/", role="button") Home
+            div.col
+            div.col
+                
